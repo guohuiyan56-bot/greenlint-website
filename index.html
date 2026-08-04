@@ -1407,12 +1407,32 @@
 
   <!-- ===== 合作伙伴 ===== -->
   <section class="sec" id="partners" style="padding:80px 0;background:var(--c-bg-alt)">
-    <div class="container reveal reveal-scale">
-      <div class="sec-label" id="partnersLabel"></div>
-      <h2 class="sec-title" id="partnersTitle" style="margin-bottom:48px"></h2>
-    </div>
-    <div class="partners-scroll">
-      <div class="partners-track" id="partnersTrack"></div>
+    <div class="container">
+      <style id="brand-home">
+        .brand-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+        .brand-tile{background:#fff;border:1px solid rgba(176,141,87,.16);border-radius:14px;height:84px;display:flex;align-items:center;justify-content:center;font-family:'Oswald','Noto Sans SC',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:1px;color:#8B6F47;transition:transform .3s,box-shadow .3s}
+        .brand-tile:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(139,111,71,.12);color:#75593a}
+        .brand-note{text-align:center;margin-top:22px;font-size:.82rem;color:#8A795F}
+        @media(max-width:900px){.brand-wall{grid-template-columns:repeat(2,1fr)}}
+      </style>
+      <div class="sec-label reveal reveal-up">Trusted Brands</div>
+      <h2 class="sec-title reveal reveal-up delay-1">合作过的家居品牌</h2>
+      <p class="sec-subtitle reveal reveal-up delay-2">从快时尚到设计师款，我们都替你谈过</p>
+      <div class="brand-wall reveal-stagger">
+        <div class="brand-tile">IKEA</div>
+        <div class="brand-tile">MUJI</div>
+        <div class="brand-tile">HAY</div>
+        <div class="brand-tile">West Elm</div>
+        <div class="brand-tile">Crate&amp;Barrel</div>
+        <div class="brand-tile">BoConcept</div>
+        <div class="brand-tile">Article</div>
+        <div class="brand-tile">Ferm LIVING</div>
+        <div class="brand-tile">Habitat</div>
+        <div class="brand-tile">Maisons du Monde</div>
+        <div class="brand-tile">Nitori</div>
+        <div class="brand-tile">Floyd</div>
+      </div>
+      <div class="brand-note">* 以上为典型合作风格参考，实际供应以项目为准</div>
     </div>
   </section>
 
