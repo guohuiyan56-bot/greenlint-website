@@ -269,38 +269,38 @@ var GT_DATA = {
     }
   ],
   "about": {
-    "label_cn": "关于我们",
-    "label_en": "About Us",
-    "badge_val": "11+",
-    "badge_lbl_cn": "年外贸深耕",
-    "badge_lbl_en": "Years Excellence",
-    "heading_cn": "把理想之家\n搬向全球",
-    "heading_en": "Your Trusted\nGlobal Trade Partner",
-    "p1_cn": "广州本润贸易公司成立于 2015 年，总部位于中国广州。11 年来我们专注于连接全球优质制造商与国际买家，提供从选品、验厂、质检到物流的一站式外贸服务。",
-    "p1_en": "Founded in 2015 and headquartered in Guangzhou, China, Benrun Trading has spent over a decade connecting premium manufacturers with international buyers, offering end-to-end services from sourcing and factory auditing to quality inspection and logistics.",
-    "p2_cn": "我们的供应链网络覆盖 30 多个国家和地区，与超过 500 家经过严格审核的工厂建立了长期合作关系，确保每一笔订单的品质与时效。",
-    "p2_en": "Our supply network spans 30+ countries with 500+ rigorously audited factories, guaranteeing quality and on-time delivery for every order.",
-    "cta_cn": "了解更多",
-    "cta_en": "Learn More",
+    "label_cn": "我们的理念",
+    "label_en": "Our Philosophy",
+    "badge_val": "8,000+",
+    "badge_lbl_cn": "已装点的家",
+    "badge_lbl_en": "Homes Furnished",
+    "heading_cn": "理想家，\n一间间慢慢成",
+    "heading_en": "The home,\nperfected room by room",
+    "p1_cn": "我们帮你打造真正舒服的家——精选家具、灯具与软装，跨越现代、北欧到经典多种风格，由搭配师帮你定调。",
+    "p1_en": "We help you build a home that feels right — curated furniture, lighting & decor across modern, Scandinavian and classic styles, matched by our stylists.",
+    "p2_cn": "从一把单椅到整屋方案，灵活起订、风格可混搭，配送到家一步到位。",
+    "p2_en": "From a single accent chair to a full-house package — flexible MOQ, mix & match styles, door-to-door delivery.",
+    "cta_cn": "聊聊搭配",
+    "cta_en": "Talk to a stylist",
     "checks": [
       {
-        "cn": "ISO 9001 质量管理体系",
-        "en": "ISO 9001 Certified"
+        "cn": "搭配师精选",
+        "en": "Curated by stylists"
       },
       {
-        "cn": "SGS / BV 第三方验货",
-        "en": "SGS / BV Inspection"
+        "cn": "灵活起订量",
+        "en": "Flexible MOQ"
       },
       {
-        "cn": "全程可视化跟单",
-        "en": "Live Order Tracking"
+        "cn": "多风格混搭",
+        "en": "Mix & match styles"
       },
       {
-        "cn": "多语言专属客服",
-        "en": "Multilingual Support"
+        "cn": "配送到家",
+        "en": "Door-to-door delivery"
       }
     ],
-    "image": "images/business-handshake.jpg"
+    "image": "images/home-living.jpg"
   },
   "services": {
     "title_cn": "家居采购，为何选我们",
