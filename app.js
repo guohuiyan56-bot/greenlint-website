@@ -605,6 +605,7 @@
   }
 
   function renderPartners() {
+    if (!document.getElementById('partnersTrack')) return;
     document.getElementById('partnersLabel').textContent = dc(d.partners, 'label');
     document.getElementById('partnersTitle').textContent = dc(d.partners, 'title');
 
