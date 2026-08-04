@@ -628,26 +628,24 @@
       display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;
     }
     .svc-card{
-      background:var(--c-bg-card);border-radius:var(--radius-lg);padding:40px 32px;
-      border:1px solid var(--c-border);transition:all 0.5s;position:relative;overflow:hidden;
+      background:#fff;border-radius:18px;padding:36px 30px;
+      border:1px solid rgba(176,141,87,.16);transition:all .4s;position:relative;overflow:hidden;
     }
     .svc-card::after{
-      content:'';position:absolute;top:0;left:0;right:0;height:2px;
-      background:linear-gradient(to right,transparent,var(--c-primary),transparent);
-      opacity:0;transition:opacity 0.5s;
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:#8B6F47;opacity:0;transition:opacity .4s;
     }
     .svc-card:hover::after{opacity:1}
-    .svc-card:hover{transform:translateY(-8px);border-color:var(--c-border-hover);box-shadow:var(--shadow-md),var(--shadow-glow)}
+    .svc-card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(139,111,71,.12)}
     .svc-icon{
-      width:56px;height:56px;border-radius:var(--radius-md);font-size:1.6rem;
-      display:flex;align-items:center;justify-content:center;margin-bottom:20px;
-      background:linear-gradient(135deg,rgba(58,38,27,0.12),rgba(58,38,27,0.04));
-      border:1px solid rgba(58,38,27,0.1);transition:all 0.5s var(--ease-bounce);
+      width:54px;height:54px;border-radius:50%;font-size:1.6rem;
+      display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+      background:rgba(176,141,87,.10);border:1px solid rgba(176,141,87,.18);transition:all .4s var(--ease-bounce);
     }
-    .svc-card:hover .svc-icon{transform:scale(1.12) rotate(-5deg);background:linear-gradient(135deg,rgba(58,38,27,0.22),rgba(58,38,27,0.08))}
-    .svc-title{font-size:1.15rem;font-weight:700;margin-bottom:10px}
-    .svc-desc{font-size:0.9rem;color:var(--c-text-dim);line-height:1.7}
-    .svc-num{position:absolute;top:24px;right:28px;font-size:4rem;font-weight:900;font-family:var(--font-display);color:rgba(58,38,27,0.03);pointer-events:none}
+    .svc-card:hover .svc-icon{transform:scale(1.1) rotate(4deg);background:rgba(176,141,87,.16)}
+    .svc-title{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:#3A2E20}
+    .svc-desc{font-size:0.88rem;color:#7A6A55;line-height:1.65}
+    .svc-num{position:absolute;top:24px;right:28px;font-size:4rem;font-weight:900;font-family:var(--font-display);color:rgba(176,141,87,.06);pointer-events:none}
 
     /* ===== 流程 ===== */
     .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;position:relative}
