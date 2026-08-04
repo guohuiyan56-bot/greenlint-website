@@ -303,54 +303,54 @@ var GT_DATA = {
     "image": "images/home-living.jpg"
   },
   "services": {
-    "title_cn": "家居采购，为何选我们",
-    "title_en": "Why Choose Us",
-    "subtitle_cn": "从选品到入户，我们为每件家居保驾护航",
-    "subtitle_en": "From sourcing to delivery, we've got every order covered",
-    "label_cn": "核心优势",
-    "label_en": "Core Advantages",
+    "title_cn": "从选品到落地的家居一站式",
+    "title_en": "One-Stop Home Furnishing",
+    "subtitle_cn": "精选、搭配、定制、配送安装，全程托底",
+    "subtitle_en": "Sourcing, styling, custom & install, all covered",
+    "label_cn": "我们的服务",
+    "label_en": "How We Help",
     "items": [
       {
-        "icon": "🔍",
-        "title_cn": "精准寻源",
-        "title_en": "Precision Sourcing",
-        "desc_cn": "深入产业带，48 小时内精准匹配 3-5 家优质供应商",
-        "desc_en": "Deep industry sourcing, 3-5 premium suppliers within 48 hours"
+        "icon": "🛋️",
+        "title_cn": "精选供应",
+        "title_en": "Curated Sourcing",
+        "desc_cn": "严选工厂与品牌，品质稳定",
+        "desc_en": "Vetted factories & brands, consistent quality"
       },
       {
-        "icon": "🏭",
-        "title_cn": "严选工厂",
-        "title_en": "Factory Auditing",
-        "desc_cn": "实地验厂+资质审查，确保供应商符合国际标准",
-        "desc_en": "On-site audits & qualification checks to meet international standards"
+        "icon": "🎨",
+        "title_cn": "软装搭配",
+        "title_en": "Styling & Matching",
+        "desc_cn": "风格统一，整体协调不踩雷",
+        "desc_en": "Cohesive styles, no mismatches"
       },
       {
-        "icon": "🔬",
-        "title_cn": "品质管控",
-        "title_en": "Quality Control",
-        "desc_cn": "SGS/BV/Intertek 第三方检测，AQL 抽检标准",
-        "desc_en": "Third-party inspection by SGS/BV/Intertek, AQL sampling"
+        "icon": "📐",
+        "title_cn": "定制设计",
+        "title_en": "Custom Design",
+        "desc_cn": "尺寸、面料、颜色按需定制",
+        "desc_en": "Size, fabric & color to your spec"
       },
       {
-        "icon": "🚢",
-        "title_cn": "全球物流",
-        "title_en": "Global Logistics",
-        "desc_cn": "海运/空运/铁路多式联运，DDP 门到门服务",
-        "desc_en": "Sea/air/rail multimodal, DDP door-to-door delivery"
+        "icon": "🚚",
+        "title_cn": "配送安装",
+        "title_en": "Delivery & Install",
+        "desc_cn": "物流直达，到店/到家安装",
+        "desc_en": "Direct logistics, in-home install"
       },
       {
-        "icon": "💰",
-        "title_cn": "金融支持",
-        "title_en": "Trade Finance",
-        "desc_cn": "信用证、TT、OA 多种结算方式，信用保险保障",
-        "desc_en": "L/C, T/T, O/A payment terms with credit insurance"
+        "icon": "🏠",
+        "title_cn": "整屋方案",
+        "title_en": "Full-House Package",
+        "desc_cn": "一站式配齐，省心省力",
+        "desc_en": "One order, fully furnished"
       },
       {
-        "icon": "🎯",
-        "title_cn": "定制开发",
-        "title_en": "Custom Development",
-        "desc_cn": "OEM/ODM 深度定制，从设计到量产全程协同",
-        "desc_en": "Deep OEM/ODM customization from design to mass production"
+        "icon": "🌐",
+        "title_cn": "全球发货",
+        "title_en": "Global Shipping",
+        "desc_cn": "多式联运，DDP 门到门",
+        "desc_en": "Multimodal, DDP door-to-door"
       }
     ]
   },
