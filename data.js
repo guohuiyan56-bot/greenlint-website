@@ -406,6 +406,20 @@ var GT_DATA = {
       }
     ]
   },
+  "banners": [
+    {
+      "title_cn": "理想家居 · 一站搭配",
+      "title_en": "Curated Home Living · Styled for You",
+      "sub_cn": "家具、灯饰、软装精选组合，搭配师帮你把空间变成家的样子",
+      "sub_en": "Furniture, lighting & decor curated and styled to turn your space into home"
+    },
+    {
+      "title_cn": "品质安心 · 省心到家",
+      "title_en": "Quality Assured · Hassle-Free Delivery",
+      "sub_cn": "样品确认、细心包装、门到门配送，让置家过程轻松无负担",
+      "sub_en": "Sample approval, careful packaging, door-to-door delivery — sourcing made easy"
+    }
+  ],
   "testimonials": {
     "label_cn": "客户评价",
     "label_en": "Testimonials",
