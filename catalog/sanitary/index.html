@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>GREENLINE 浴室柜目录册 | Bathroom Vanity Catalogue</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png?v=202607251806">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg: #F7F3ED;
+    --brown-dark: #3A261B;
+    --brown-med: #6B4F3C;
+    --brown-light: #A88C6C;
+    --gold: #C9A66B;
+    --text: #2C1E15;
+    --text-light: #6D5A4D;
+  }
+  html, body { height:100%; width:100%; overflow:hidden; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .app { display:flex; flex-direction:column; height:100vh; width:100vw; position:relative; }
+
+  /* Top bar */
+  .topbar {
+    height:62px;
+    background: var(--brown-dark);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+    position:sticky; top:0;
+    z-index:100;
+    box-shadow:0 2px 14px rgba(0,0,0,0.18);
+    flex-shrink:0;
+  }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .logo { font-size:20px; font-weight:800; color: var(--gold); letter-spacing:1.5px; }
+  .title-group { display:flex; flex-direction:column; line-height:1.25; }
+  .title-main { font-size:15px; font-weight:600; letter-spacing:0.5px; }
+  .title-sub { font-size:11px; opacity:0.75; font-weight:400; letter-spacing:0.4px; }
+  .controls { display:flex; align-items:center; gap:8px; }
+  .btn {
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    color:#fff;
+    padding:7px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+    transition: background .2s, transform .1s, border-color .2s;
+    display:inline-flex; align-items:center; gap:6px; line-height:1;
+  }
+  .btn:hover { background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.3); }
+  .btn:active { transform: scale(0.96); }
+  .btn:disabled { opacity:0.35; cursor:default; }
+  .btn svg { width:16px; height:16px; flex-shrink:0; }
+  .page-group { display:flex; align-items:center; gap:6px; background:rgba(0,0,0,0.15); border-radius:6px; padding:4px 8px; }
+  .page-indicator { min-width:70px; text-align:center; font-variant-numeric: tabular-nums; font-size:14px; letter-spacing:0.5px; }
+  .page-jump {
+    width:58px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+    color:#fff; border-radius:4px; padding:5px 4px; text-align:center; font-size:13px;
+    outline:none; font-variant-numeric: tabular-nums;
+  }
+  .page-jump::placeholder { color:rgba(255,255,255,0.45); }
+  .page-jump:focus { border-color: var(--gold); background:rgba(255,255,255,0.16); }
+  .page-jump-btn { padding:6px 9px; font-size:12px; }
+
+  /* Main stage */
+  .main { flex:1; display:flex; position:relative; overflow:hidden; }
+  .flip-stage { flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:22px 22px 10px; }
+  #book { width:100%; max-width:1600px; }
+
+  /* Drawer */
+  .drawer {
+    position:fixed; top:62px; left:0; bottom:0; width:340px; max-width:86vw;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow:2px 0 24px rgba(0,0,0,0.14);
+    transform:translateX(-100%);
+    transition:transform .32s cubic-bezier(0.25,0.8,0.25,1);
+    z-index:90; overflow-y:auto; padding:22px 24px 28px;
+  }
+  .drawer.open { transform:translateX(0); }
+  .drawer h2 { font-size:18px; margin-bottom:18px; color: var(--brown-dark); border-bottom:2px solid var(--gold); padding-bottom:8px; }
+  .toc-section { margin-bottom:20px; }
+  .toc-section-title { font-size:15px; font-weight:700; color: var(--brown-dark); margin-bottom:10px; display:flex; align-items:flex-start; gap:10px; }
+  .toc-section-title .num { font-size:24px; color: var(--gold); font-weight:800; line-height:1; }
+  .toc-section-title .sec-sub { font-size:11px; color: var(--text-light); font-weight:400; text-transform:uppercase; letter-spacing:0.5px; }
+  .toc-item { display:flex; align-items:center; justify-content:space-between; padding:9px 0; border-bottom:1px solid rgba(0,0,0,0.06); cursor:pointer; transition: color .15s, background .15s, padding .15s; border-radius:4px; }
+  .toc-item:hover { color: var(--gold); background: rgba(201,166,107,0.08); padding-left:8px; padding-right:8px; }
+  .toc-item .name { display:flex; flex-direction:column; }
+  .toc-item .name strong { font-size:14px; font-weight:500; }
+  .toc-item .name span { font-size:11px; color: var(--text-light); margin-top:1px; }
+  .toc-item .pg { font-size:12px; color: var(--text-light); font-variant-numeric: tabular-nums; flex-shrink:0; }
+  .drawer-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.28); z-index:80; opacity:0; pointer-events:none; transition:opacity .3s; }
+  .drawer-overlay.open { opacity:1; pointer-events:auto; }
+
+  /* Thumbnail rail */
+  .thumb-rail {
+    height:112px; background:#fff; border-top:1px solid rgba(0,0,0,0.08);
+    display:flex; align-items:center; gap:10px; padding:10px 18px; overflow-x:auto; overflow-y:hidden; flex-shrink:0;
+  }
+  .thumb-rail::-webkit-scrollbar { height:6px; }
+  .thumb-rail::-webkit-scrollbar-track { background:transparent; }
+  .thumb-rail::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius:3px; }
+  .thumb { flex:0 0 auto; width:132px; height:92px; border-radius:5px; overflow:hidden; cursor:pointer; border:2px solid transparent; opacity:0.65; transition:all .2s ease; background:#f5f5f5; }
+  .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+  .thumb:hover { opacity:1; transform: translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+  .thumb.active { opacity:1; border-color: var(--gold); box-shadow:0 4px 14px rgba(201,166,107,0.35); }
+
+  /* Loader */
+  .loader { position:fixed; inset:0; background: var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:200; transition: opacity .5s ease; }
+  .loader.hidden { opacity:0; pointer-events:none; }
+  .spinner { width:50px; height:50px; border:3px solid rgba(58,38,27,0.12); border-top-color: var(--gold); border-radius:50%; animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loader p { margin-top:16px; color: var(--text-light); font-size:14px; letter-spacing:0.5px; }
+  .loader small { margin-top:10px; color: var(--text-light); font-size:12px; opacity:0.8; }
+
+  /* Lightbox */
+  .lightbox { position:fixed; inset:0; background: rgba(14,9,6,0.97); z-index:300; display:none; flex-direction:column; }
+  .lightbox.active { display:flex; }
+  .lightbox-bar { height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 18px; color:#fff; background:rgba(0,0,0,0.25); flex-shrink:0; }
+  .lightbox-title { font-size:14px; letter-spacing:0.3px; }
+  .lightbox .btn { padding:7px 10px; font-size:15px; }
+  .lightbox .zoom-val { min-width:46px; text-align:center; font-size:13px; }
+  .lightbox-view { flex:1; overflow:auto; position:relative; cursor:grab; display:flex; align-items:flex-start; justify-content:flex-start; }
+  .lightbox-view:active { cursor:grabbing; }
+  .lightbox-img { display:block; max-width:none; max-height:none; width:100vw; height:auto; flex-shrink:0; }
+  .lightbox-hint { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.6); font-size:12px; pointer-events:none; background:rgba(0,0,0,0.3); padding:4px 12px; border-radius:20px; }
+
+  @media (max-width: 768px) {
+    .topbar { padding:0 12px; height:58px; }
+    .logo { font-size:17px; }
+    .title-main { font-size:13px; }
+    .title-sub { display:none; }
+    .btn span { display:none; }
+    .controls { gap:6px; }
+    .page-group { padding:4px 6px; gap:4px; }
+    .page-indicator { min-width:60px; font-size:12px; }
+    .page-jump { width:50px; padding:4px 2px; font-size:12px; }
+    .page-jump-btn { display:none; }  /* jump on Enter on mobile */
+    .thumb-rail { height:92px; padding:8px 12px; }
+    .thumb { width:108px; height:76px; }
+    .drawer { width:100%; max-width:100%; padding:18px; }
+  }
+
+  /* ===== 全屏沉浸模式 ===== */
+  .app.fs-mode .topbar,
+  .app.fs-mode .thumb-rail,
+  .app.fs-mode .drawer { display:none !important; }
+  .app.fs-mode .flip-stage { padding:0; background:#1c140d; }
+  .app.fs-mode #book { max-width:100%; }
+  .edge-nav {
+    position:fixed; top:0; bottom:0; width:13%; max-width:150px;
+    display:flex; align-items:center; justify-content:center;
+    z-index:150; cursor:pointer; border:0; padding:0; margin:0;
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+    background:linear-gradient(to right, rgba(58,38,27,0.30), rgba(58,38,27,0));
+  }
+  .edge-nav.right { right:0; background:linear-gradient(to left, rgba(58,38,27,0.30), rgba(58,38,27,0)); }
+  .edge-nav svg { width:38px; height:38px; color:#fff; filter:drop-shadow(0 2px 6px rgba(0,0,0,.55)); transition:transform .15s ease; }
+  .edge-nav:hover svg { transform:scale(1.18); }
+  .app.fs-mode .edge-nav { opacity:.32; pointer-events:auto; }
+  .app.fs-mode .edge-nav:hover { opacity:.85; }
+  .edge-nav:disabled { opacity:0 !important; pointer-events:none; }
+</style>
+<script src="data.js?v=3"></script>
+<script src="../lib/page-flip.browser.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <p>正在加载目录册…</p>
+    <small>极速加载中，即将打开…</small>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">GREENLINE</div>
+      <div class="title-group">
+        <div class="title-main">浴室柜目录册</div>
+        <div class="title-sub">Bathroom Vanity Catalogue</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="btnToc" title="目录">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        <span>目录</span>
+      </button>
+      <button class="btn" id="btnPrev" title="上一页">
+        <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        <span>上一页</span>
+      </button>
+      <div class="page-group">
+        <div class="page-indicator" id="pageIndicator">1 / 1</div>
+        <input type="number" class="page-jump" id="pageJump" min="1" placeholder="页">
+        <button class="btn page-jump-btn" id="btnJump" title="跳转">跳转</button>
+      </div>
+      <button class="btn" id="btnNext" title="下一页">
+        <span>下一页</span>
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      </button>
+      <button class="btn" id="btnZoom" title="放大查看">
+        <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        <span>放大</span>
+      </button>
+      <button class="btn" id="btnFullscreen" title="全屏">
+        <svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14v6h6v-2H6v-4H4zm16 0v6h-6v-2h4v-4h2z" fill="currentColor"/></svg>
+        <span>全屏</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="flip-stage">
+      <div id="book"></div>
+    </div>
+    <aside class="drawer" id="drawer"></aside>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+  </main>
+    <button class="edge-nav left" id="edgePrev" title="上一页" disabled>
+      <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="edge-nav right" id="edgeNext" title="下一页">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+
+  <div class="thumb-rail" id="thumbRail"></div>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-bar">
+      <div class="lightbox-title" id="lightboxTitle">第 1 页</div>
+      <div class="lightbox-controls">
+        <button class="btn" id="lbZoomOut">-</button>
+        <div class="zoom-val" id="zoomVal">100%</div>
+        <button class="btn" id="lbZoomIn">+</button>
+        <button class="btn" id="lbPrev">‹</button>
+        <button class="btn" id="lbNext">›</button>
+        <button class="btn" id="lbClose" title="关闭">✕</button>
+      </div>
+    </div>
+    <div class="lightbox-view" id="lightboxView">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="放大视图">
+      <div class="lightbox-hint">滚轮缩放 · 拖拽移动 · 方向键翻页</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const F = window.FLIP;
+  const TOTAL_PAGES = F.total;
+  const IMAGES = F.images;
+  const THUMBS = F.thumbs;
+  const TOC = (F.toc || []).map(function(s, idx) {
+    if (s && s.items) return s;
+    var cn = s.cn || s.title_cn || '章节';
+    var en = s.en || s.title_en || '';
+    var page = s.page || 0;
+    return { num: String(idx+1).padStart(2,'0'), cn: cn, en: en, items: [{cn: cn, en: en, page: page}] };
+  });
+
+  let flip = null;
+  let currentPage = 0;
+  let lightboxZoom = 1, lightboxPage = 0;
+  let drag = { active:false, x:0, y:0, sl:0, st:0 };
+
+  const $ = (id) => document.getElementById(id);
+
+  // 按需懒加载：先用 1x1 占位图瞬时初始化，init 后再按当前跨页+相邻页换真实 WebP
+  const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+  const _loaded = new Set();
+  function ensureLoaded(i) {
+    if (i < 0 || i >= TOTAL_PAGES || _loaded.has(i)) return;
+    _loaded.add(i);
+    const pg = flip.getPageCollection().getPages()[i];
+    if (!pg || !pg.image) return;
+    pg.image.onload = () => { pg.isLoad = true; try { flip.getRender().update(); } catch(e) {} };
+    pg.image.src = IMAGES[i];
+  }
+  function preloadAround(p) {
+    [p-1, p, p+1, p+2].forEach(ensureLoaded);
+  }
+
+  function initFlip() {
+    if (flip) return;
+    const settings = {
+      size: 'stretch',
+      width: 620, height: 878,
+      minWidth: 310, maxWidth: 1600,
+      minHeight: 100, maxHeight: 4000,
+      drawShadow: true,
+      flippingTime: 900,
+      usePortrait: true,
+      autoSize: true,
+      maxShadowOpacity: 0.6,
+      showCover: false,
+      mobileScrollSupport: false,
+      swipeDistance: 30,
+      clickEventForward: true,
+      showPageCorners: true
+    };
+    try {
+      flip = new St.PageFlip($('book'), settings);
+      flip.loadFromImages(Array(TOTAL_PAGES).fill(PLACEHOLDER));
+      flip.on('init', () => { finishLoading(); preloadAround(flip.getCurrentPageIndex()); });
+    } catch (err) {
+      console.error('St.PageFlip init failed:', err);
+      const ld = $('loaderText'); if (ld) ld.textContent = '加载出现问题，请刷新重试';
+      finishLoading();
+    }
+    flip.on('flip', (e) => { currentPage = e.data; updateUI(); updateThumb(); preloadAround(e.data); });
+    buildTOC();
+    buildThumbs();
+    bindEvents();
+    setTimeout(finishLoading, 4000);
+  }
+
+  let loaderHidden = false;
+  function finishLoading() {
+    if (loaderHidden) return;
+    loaderHidden = true;
+    $('loader').classList.add('hidden');
+    updateUI();
+  }
+
+  function buildTOC() {
+    const drawer = $('drawer');
+    if (!TOC.length) {
+      drawer.innerHTML = '<h2>目录 Catalogue</h2><p style="font-size:13px;color:var(--text-light);margin-top:8px;">本册未提供结构化目录，可使用底部缩略图或页码跳转快速定位。</p>';
+      return;
+    }
+    let html = '<h2>目录 Catalogue</h2>';
+    for (const sec of TOC) {
+      html += `<div class="toc-section">
+        <div class="toc-section-title"><span class="num">${sec.num}</span>
+        <span>${sec.cn}<br><span class="sec-sub">${sec.en}</span></span></div>`;
+      for (const item of sec.items) {
+        html += `<div class="toc-item" data-page="${item.page}">
+          <div class="name"><strong>${item.cn}</strong><span>${item.en}</span></div>
+          <div class="pg">第 ${item.page+1} 页</div></div>`;
+      }
+      html += '</div>';
+    }
+    drawer.innerHTML = html;
+    drawer.querySelectorAll('.toc-item').forEach(el => {
+      el.addEventListener('click', () => { goToPage(parseInt(el.dataset.page, 10)); closeDrawer(); });
+    });
+  }
+
+  function buildThumbs() {
+    const rail = $('thumbRail');
+    rail.innerHTML = THUMBS.map((src, i) =>
+      `<div class="thumb" data-page="${i}" title="第 ${i+1} 页"><img src="${src}" alt="缩略图 ${i+1}" loading="lazy"></div>`
+    ).join('');
+    rail.querySelectorAll('.thumb').forEach(el => {
+      el.addEventListener('click', () => goToPage(parseInt(el.dataset.page, 10)));
+    });
+    updateThumb();
+  }
+
+  function updateUI() {
+    $('pageIndicator').textContent = `${currentPage + 1} / ${TOTAL_PAGES}`;
+    $('btnPrev').disabled = currentPage <= 0;
+    $('btnNext').disabled = currentPage >= TOTAL_PAGES - 1;
+    $('pageJump').max = TOTAL_PAGES;
+    $('pageJump').value = currentPage + 1;
+    updateThumb();
+    syncEdgeNav();
+  }
+
+  function updateThumb() {
+    document.querySelectorAll('.thumb').forEach((el, i) => {
+      el.classList.toggle('active', i === currentPage);
+      if (i === currentPage) el.scrollIntoView({inline:'center', behavior:'smooth', block:'nearest'});
+    });
+  }
+
+  const tocFlat = [];
+  for (const sec of TOC) {
+    for (let i=0; i<sec.items.length; i++) {
+      const it = sec.items[i];
+      const next = sec.items[i+1] || null;
+      tocFlat.push({ cn: it.cn, en: it.en, page: it.page, sec: sec.cn, nextPage: next ? next.page : Infinity });
+    }
+  }
+  function tocLabel(p) {
+    if (p === 0) return '目录 Catalogue';
+    for (const it of tocFlat) if (p >= it.page && p < it.nextPage) return `${it.sec} · ${it.cn}`;
+    return 'GREENLINE';
+  }
+
+  function goToPage(p) {
+    if (!flip || p < 0 || p >= TOTAL_PAGES) return;
+    if (p === currentPage) return;
+    flip.flip(p, 'top');
+  }
+  function handleJump() {
+    const n = parseInt($('pageJump').value, 10);
+    if (!isNaN(n) && n >= 1 && n <= TOTAL_PAGES) goToPage(n - 1);
+  }
+
+  function closeDrawer() {
+    $('drawer').classList.remove('open');
+    $('drawerOverlay').classList.remove('open');
+  }
+
+  function openLightbox(p) {
+    lightboxPage = p; lightboxZoom = 1;
+    $('lightboxImg').src = IMAGES[p];
+    $('lightboxTitle').textContent = `第 ${p+1} 页 · ${tocLabel(p)}`;
+    $('lightbox').classList.add('active');
+    applyZoom();
+  }
+  function closeLightbox() { $('lightbox').classList.remove('active'); }
+  function applyZoom() {
+    const img = $('lightboxImg'), view = $('lightboxView');
+    img.style.width = (lightboxZoom * 100) + 'vw';
+    $('zoomVal').textContent = Math.round(lightboxZoom * 100) + '%';
+    requestAnimationFrame(() => {
+      if (view.scrollWidth > view.clientWidth) view.scrollLeft = (view.scrollWidth - view.clientWidth) / 2;
+      if (view.scrollHeight > view.clientHeight) view.scrollTop = (view.scrollHeight - view.clientHeight) / 2;
+    });
+  }
+  function setZoom(delta) { lightboxZoom = Math.max(1, Math.min(4, lightboxZoom + delta)); applyZoom(); }
+
+  function syncEdgeNav() {
+    const prev = $('edgePrev'), next = $('edgeNext');
+    if (!prev || !next) return;
+    prev.disabled = currentPage <= 0;
+    next.disabled = currentPage >= TOTAL_PAGES - 1;
+  }
+  function refitFlip() {
+    if (!flip) return;
+    try { flip.update(); } catch(e) {}
+    window.dispatchEvent(new Event('resize'));
+  }
+  function bindEvents() {
+    $('btnToc').addEventListener('click', () => {
+      $('drawer').classList.toggle('open');
+      $('drawerOverlay').classList.toggle('open');
+    });
+    $('drawerOverlay').addEventListener('click', closeDrawer);
+    $('btnPrev').addEventListener('click', () => flip && flip.flipPrev());
+    $('btnNext').addEventListener('click', () => flip && flip.flipNext());
+    $('btnZoom').addEventListener('click', () => openLightbox(currentPage));
+    $('btnFullscreen').addEventListener('click', () => {
+      const el = $('app');
+      if (!document.fullscreenElement) el.requestFullscreen && el.requestFullscreen().catch(()=>{});
+      else document.exitFullscreen();
+    });
+    document.addEventListener('fullscreenchange', () => {
+      const el = $('app');
+      if (document.fullscreenElement) el.classList.add('fs-mode'); else el.classList.remove('fs-mode');
+      syncEdgeNav(); refitFlip();
+      setTimeout(refitFlip, 150);
+    });
+    $('edgePrev').addEventListener('click', () => flip && flip.flipPrev());
+    $('edgeNext').addEventListener('click', () => flip && flip.flipNext());
+    $('btnJump').addEventListener('click', handleJump);
+    $('pageJump').addEventListener('keydown', (e) => { if (e.key === 'Enter') handleJump(); });
+    $('pageJump').addEventListener('change', handleJump);
+
+    $('lbClose').addEventListener('click', closeLightbox);
+    $('lbZoomIn').addEventListener('click', () => setZoom(0.25));
+    $('lbZoomOut').addEventListener('click', () => setZoom(-0.25));
+    $('lbPrev').addEventListener('click', () => { if (lightboxPage > 0) openLightbox(lightboxPage - 1); });
+    $('lbNext').addEventListener('click', () => { if (lightboxPage < TOTAL_PAGES - 1) openLightbox(lightboxPage + 1); });
+
+    const view = $('lightboxView');
+    view.addEventListener('wheel', (e) => { e.preventDefault(); setZoom(e.deltaY > 0 ? -0.15 : 0.15); }, {passive:false});
+    view.addEventListener('mousedown', (e) => { if (e.button !== 0) return; drag.active=true; drag.x=e.clientX; drag.y=e.clientY; drag.sl=view.scrollLeft; drag.st=view.scrollTop; view.style.cursor='grabbing'; });
+    window.addEventListener('mouseup', () => { drag.active=false; view.style.cursor='grab'; });
+    view.addEventListener('mousemove', (e) => { if (!drag.active) return; view.scrollLeft = drag.sl - (e.clientX - drag.x); view.scrollTop = drag.st - (e.clientY - drag.y); });
+    view.addEventListener('mouseleave', () => { drag.active=false; view.style.cursor='grab'; });
+
+    document.addEventListener('keydown', (e) => {
+      if ($('lightbox').classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft' && lightboxPage > 0) openLightbox(lightboxPage - 1);
+        if (e.key === 'ArrowRight' && lightboxPage < TOTAL_PAGES - 1) openLightbox(lightboxPage + 1);
+        if (e.key === 'ArrowUp') { e.preventDefault(); setZoom(0.25); }
+        if (e.key === 'ArrowDown') { e.preventDefault(); setZoom(-0.25); }
+      } else {
+        if (e.key === 'ArrowLeft') flip && flip.flipPrev();
+        if (e.key === 'ArrowRight') flip && flip.flipNext();
+      }
+    });
+  }
+
+  initFlip();
+  // 硬兜底：无论 St.PageFlip 是否初始化成功，最多 3 秒后显示书本（避免一直转圈）
+  setTimeout(finishLoading, 3000);
+})();
+</script>
+</body>
+</html>
