@@ -383,10 +383,12 @@
     var imgContent = p.image
       ? '<img src="' + p.image + '" alt="' + dc(p, 'name') + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async">'
       : '<div class="prod-card-img-placeholder">' + (catObj ? catObj.icon || '📦' : '📦') + '</div>';
+    var stylePill = '<span class="prod-style-pill">' + prodStyle(p) + '</span>';
     return '' +
       '<div class="prod-card delay-' + ((idx % 6) + 1) + '" data-cat="' + p.category + '">' +
         '<div class="prod-card-img-wrap">' +
           imgContent +
+          stylePill +
           '<img class="prod-card-logo" src="assets/prod-logo-badge.png?v=1" alt="GREENLINE" loading="lazy" decoding="async">' +
           '<div class="prod-card-overlay">' +
             '<div class="prod-card-quick">' + (lang === 'cn' ? '立即询价' : 'Inquire Now') + '</div>' +
@@ -398,6 +400,19 @@
           '<div class="prod-card-desc">' + dc(p, 'desc') + '</div>' +
         '</div>' +
       '</div>';
+  }
+
+  function prodStyle(p) {
+    var t = (dc(p, 'name') + ' ' + dc(p, 'desc')).toLowerCase();
+    if (t.indexOf('智能') >= 0 || t.indexOf('smart') >= 0) return 'Smart';
+    if (t.indexOf('办公') >= 0 || t.indexOf('office') >= 0) return 'Functional';
+    if (t.indexOf('灯') >= 0 || t.indexOf('light') >= 0 || t.indexOf('照明') >= 0) return 'Ambient';
+    if (t.indexOf('卫') >= 0 || t.indexOf('bath') >= 0 || t.indexOf('toilet') >= 0) return 'Spa';
+    if (t.indexOf('餐') >= 0 || t.indexOf('kitchen') >= 0 || t.indexOf('锅') >= 0 || t.indexOf('cook') >= 0) return 'Kitchen';
+    if (t.indexOf('软') >= 0 || t.indexOf('布') >= 0 || t.indexOf('sofa') >= 0 || t.indexOf('upholster') >= 0) return 'Cozy';
+    if (t.indexOf('木') >= 0 || t.indexOf('wood') >= 0) return 'Natural';
+    if (t.indexOf('户外') >= 0 || t.indexOf('outdoor') >= 0) return 'Outdoor';
+    return 'Lifestyle';
   }
 
   /* ===== 右侧产品网格 ===== */
