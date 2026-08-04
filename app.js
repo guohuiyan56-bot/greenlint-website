@@ -499,6 +499,7 @@
   }
 
   function renderStats() {
+    if (!document.getElementById('statsStrip')) return;
     var html = '';
     d.stats.forEach(function (s) {
       html +=
@@ -526,8 +527,8 @@
     document.getElementById('aboutHeading').innerHTML = dc(d.about, 'heading').replace(/\n/g, '<br>');
     document.getElementById('aboutP1').textContent = dc(d.about, 'p1');
     document.getElementById('aboutP2').textContent = dc(d.about, 'p2');
-    document.getElementById('aboutBadgeVal').textContent = d.about.badge_val;
-    document.getElementById('aboutBadgeLbl').textContent = dc(d.about, 'badge_lbl');
+    var _bv = document.getElementById('aboutBadgeVal'); if (_bv) _bv.textContent = d.about.badge_val;
+    var _bl = document.getElementById('aboutBadgeLbl'); if (_bl) _bl.textContent = dc(d.about, 'badge_lbl');
 
     var aboutImg = document.getElementById('aboutImg');
     if (d.about.image && aboutImg) {
@@ -581,6 +582,7 @@
   }
 
   function renderTestimonials() {
+    if (!document.getElementById('testGrid')) return;
     document.getElementById('testLabel').textContent = dc(d.testimonials, 'label');
     document.getElementById('testTitle').textContent = dc(d.testimonials, 'title');
 
