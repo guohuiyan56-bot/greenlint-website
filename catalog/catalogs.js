@@ -97,18 +97,6 @@ window.CATALOGS = [
     "pages": 256
   },
   {
-    "id": "gift",
-    "folder": "gift",
-    "category": "gift",
-    "title_cn": "礼品定制手册",
-    "title_en": "Custom Gift Handbook",
-    "desc_cn": "徽章 · 奖杯 · 纪念币 · 文创礼品 · 企业定制",
-    "desc_en": "Badges · trophies · medals · creative gifts · corporate customization",
-    "cover_cn": "gift/cover_cn.webp",
-    "cover_en": "gift/cover_en.webp",
-    "pages": 4
-  },
-  {
     "id": "bbq",
     "folder": "bbq",
     "category": "home",
@@ -119,18 +107,6 @@ window.CATALOGS = [
     "cover_cn": "bbq/cover_cn.webp",
     "cover_en": "bbq/cover_en.webp",
     "pages": 38
-  },
-  {
-    "id": "olive",
-    "folder": "olive",
-    "category": "gift",
-    "title_cn": "GREENLINE 环保餐具目录册",
-    "title_en": "GREENLINE Eco Tableware Catalogue",
-    "desc_cn": "可降解环保餐具 · 餐盒 · 杯碗 · 刀叉勺",
-    "desc_en": "Biodegradable eco tableware · containers · cups · bowls · cutlery",
-    "cover_cn": "olive/cover_cn.webp",
-    "cover_en": "olive/cover_en.webp",
-    "pages": 4
   },
   {
     "id": "tablechair",
@@ -145,18 +121,6 @@ window.CATALOGS = [
     "pages": 70
   },
   {
-    "id": "lounge",
-    "folder": "lounge",
-    "category": "home",
-    "title_cn": "户外家具目录册",
-    "title_en": "Outdoor Furniture Catalogue",
-    "desc_cn": "户外躺椅 · 休闲家具 · 遮阳伞 · 户外沙发套装",
-    "desc_en": "Outdoor lounge chairs · leisure furniture · parasols · outdoor sofa sets",
-    "cover_cn": "lounge/cover_cn.webp",
-    "cover_en": "lounge/cover_en.webp",
-    "pages": 2
-  },
-  {
     "id": "floral",
     "folder": "floral",
     "category": "home",
@@ -167,18 +131,6 @@ window.CATALOGS = [
     "cover_cn": "floral/cover_cn.webp",
     "cover_en": "floral/cover_en.webp",
     "pages": 55
-  },
-  {
-    "id": "christmas",
-    "folder": "christmas",
-    "category": "gift",
-    "title_cn": "圣诞节日用品目录册",
-    "title_en": "Christmas Items Catalogue",
-    "desc_cn": "GREENLINE 圣诞节日装饰与礼品目录册。",
-    "desc_en": "GREENLINE Christmas items and decorations catalogue.",
-    "cover_cn": "christmas/cover_cn.webp",
-    "cover_en": "christmas/cover_en.webp",
-    "pages": 9
   },
   {
     "id": "knifeset",
@@ -217,7 +169,6 @@ window.CATALOGS = [
     "pages": 140
   }
 ];
-
 window.CATALOG_CATS = {
   "home": {
     "cn": "家居家装",
