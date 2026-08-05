@@ -50,8 +50,8 @@ var GT_DATA = {
     "badge_en": "Trusted Globally · Professional Trading",
     "title_cn": "连接全球优质供应链\n<em>一站式</em>国际贸易解决方案",
     "title_en": "Connect to the World's Best\n<em>One-Stop</em> Trade Solutions",
-    "desc_cn": "广州本润贸易，专注家具、卫浴、灯饰、墙饰、礼品等家居品类出口，从选品到交付全程护航。",
-    "desc_en": "Benrun Trading specializes in furniture, sanitary ware, lighting, wall decor and gifts — full support from sourcing to delivery.",
+    "desc_cn": "广州本润贸易，专注家具、卫浴、灯饰、墙饰等家居品类出口，从选品到交付全程护航。",
+    "desc_en": "Benrun Trading specializes in furniture, sanitary ware, lighting and wall decor — full support from sourcing to delivery.",
     "cta_cn": "查看产品",
     "cta_en": "View Products",
     "contact_cn": "联系我们",
@@ -108,12 +108,6 @@ var GT_DATA = {
       "name_cn": "家居家装",
       "name_en": "Home & Living",
       "icon": "🏠"
-    },
-    {
-      "id": "gift",
-      "name_cn": "礼品文创",
-      "name_en": "Gifts & Crafts",
-      "icon": "🎁"
     },
     {
       "id": "decor",
@@ -212,60 +206,6 @@ var GT_DATA = {
       "desc_cn": "不粘蛋糕模、饼干模、面包烤盘套装",
       "desc_en": "Non-stick cake molds, cookie cutters, baking pans set",
       "image": "images/p15.jpg"
-    },
-    {
-      "id": "p17",
-      "category": "gift",
-      "name_cn": "促销赠品",
-      "name_en": "Promotional Gifts",
-      "desc_cn": "企业伴手礼、展会赠品、广告衫、帆布袋",
-      "desc_en": "Corporate gifts, trade show giveaways, T-shirts, tote bags",
-      "image": "images/p17.jpg"
-    },
-    {
-      "id": "p20",
-      "category": "gift",
-      "name_cn": "圣诞装饰品",
-      "name_en": "Christmas Decorations",
-      "desc_cn": "圣诞树、彩球、灯串、花环装饰全套",
-      "desc_en": "Christmas trees, baubles, light strings, wreaths set",
-      "image": "images/p20.jpg"
-    },
-    {
-      "id": "p22",
-      "category": "gift",
-      "name_cn": "树脂手工艺品",
-      "name_en": "Resin Handicrafts",
-      "desc_cn": "手工浇筑树脂摆件，桌面装饰收藏",
-      "desc_en": "Handmade resin figurines for desk decor & collection",
-      "image": "images/p22.jpg"
-    },
-    {
-      "id": "p23",
-      "category": "gift",
-      "name_cn": "彩印礼品盒",
-      "name_en": "Printed Gift Boxes",
-      "desc_cn": "硬纸板礼品盒，烫金/UV印刷工艺",
-      "desc_en": "Rigid gift boxes with foil stamping & UV printing",
-      "image": "images/p23.jpg"
-    },
-    {
-      "id": "p24",
-      "category": "gift",
-      "name_cn": "万圣节周边",
-      "name_en": "Halloween Accessories",
-      "desc_cn": "南瓜灯、面具、服装、派对装饰",
-      "desc_en": "Pumpkin lights, masks, costumes, party decorations",
-      "image": "images/p24.jpg"
-    },
-    {
-      "id": "p27",
-      "category": "gift",
-      "name_cn": "环保包装袋",
-      "name_en": "Eco Packaging Bags",
-      "desc_cn": "无纺布袋、牛皮纸袋、可降解材料包装",
-      "desc_en": "Non-woven bags, kraft paper bags, biodegradable packaging",
-      "image": "images/p27.jpg"
     }
   ],
   "about": {
@@ -520,8 +460,8 @@ var GT_DATA = {
     ]
   },
   "footer": {
-    "about_cn": "广州本润贸易公司 — 值得信赖的一站式家居采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、墙面装饰、礼品文创等品类。",
-    "about_en": "Benrun Trading — Your trusted one-stop home & living sourcing platform. Since 2015, we have served 200+ international clients across home & living, wall decor and gifts.",
+    "about_cn": "广州本润贸易公司 — 值得信赖的一站式家居采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、墙面装饰等品类。",
+    "about_en": "Benrun Trading — Your trusted one-stop home & living sourcing platform. Since 2015, we have served 200+ international clients across home & living and wall decor.",
     "quick_links_cn": "快速链接",
     "quick_links_en": "Quick Links",
     "categories_cn": "产品分类",
