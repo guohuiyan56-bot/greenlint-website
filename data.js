@@ -114,6 +114,12 @@ var GT_DATA = {
       "name_cn": "墙面装饰",
       "name_en": "Wall Decor",
       "icon": "🖼️"
+    },
+    {
+      "id": "seating",
+      "name_cn": "座椅 Seating",
+      "name_en": "Seating",
+      "icon": "🪑"
     }
   ],
   "products": [

@@ -179,6 +179,66 @@ window.CATALOGS = [
     "cover_cn": "tiles/cover_cn.webp",
     "cover_en": "tiles/cover_en.webp",
     "pages": 140
+  },
+  {
+    "id": "gaming-chair",
+    "folder": "gaming-chair",
+    "category": "seating",
+    "title_cn": "电竞椅目录册",
+    "title_en": "Gaming Chair Catalogue",
+    "desc_cn": "电竞游戏椅 · 赛车桶座 · RGB 灯效 · 可躺托盘",
+    "desc_en": "Gaming chairs · racing bucket seats · RGB lighting · reclining tilt",
+    "cover_cn": "gaming-chair/cover_cn.webp",
+    "cover_en": "gaming-chair/cover_en.webp",
+    "pages": 8
+  },
+  {
+    "id": "office-chair-ft",
+    "folder": "office-chair-ft",
+    "category": "seating",
+    "title_cn": "办公椅目录册",
+    "title_en": "Office Chair Catalogue",
+    "desc_cn": "PVC面料办公椅 · 人体工学 · 升降托盘 · 多色可选",
+    "desc_en": "PVC office chairs · ergonomic design · lift mechanism · multi-color options",
+    "cover_cn": "office-chair-ft/cover_cn.webp",
+    "cover_en": "office-chair-ft/cover_en.webp",
+    "pages": 4
+  },
+  {
+    "id": "mesh-chair-ft",
+    "folder": "mesh-chair-ft",
+    "category": "seating",
+    "title_cn": "网椅目录册",
+    "title_en": "Mesh Chair Catalogue",
+    "desc_cn": "透气网布办公椅 · PP扶手 · 升降托盘 · 经济实用",
+    "desc_en": "Breathable mesh office chairs · PP armrests · lift mechanism · budget-friendly",
+    "cover_cn": "mesh-chair-ft/cover_cn.webp",
+    "cover_en": "mesh-chair-ft/cover_en.webp",
+    "pages": 12
+  },
+  {
+    "id": "office-chair-ad",
+    "folder": "office-chair-ad",
+    "category": "seating",
+    "title_cn": "GL-AD 办公椅目录册",
+    "title_en": "GL-AD Office Chair Catalogue",
+    "desc_cn": "GL-AD系列人体工学办公椅 · MOSH系列 · 高端编织面料",
+    "desc_en": "GL-AD ergonomic office chairs · MOSH series · premium woven fabric",
+    "cover_cn": "office-chair-ad/cover_cn.webp",
+    "cover_en": "office-chair-ad/cover_en.webp",
+    "pages": 160
+  },
+  {
+    "id": "leather-chair-ad",
+    "folder": "leather-chair-ad",
+    "category": "seating",
+    "title_cn": "GL-AD 皮椅目录册",
+    "title_en": "GL-AD Leather Chair Catalogue",
+    "desc_cn": "GL-AD系列真皮办公椅 · 高级皮革 · 精致缝线 · 商务风格",
+    "desc_en": "GL-AD genuine leather executive chairs · fine stitching · business style",
+    "cover_cn": "leather-chair-ad/cover_cn.webp",
+    "cover_en": "leather-chair-ad/cover_en.webp",
+    "pages": 2
   }
 ];
 
@@ -190,5 +250,9 @@ window.CATALOG_CATS = {
   "decor": {
     "cn": "墙面装饰",
     "en": "Wall Decor"
+  },
+  "seating": {
+    "cn": "座椅 Seating",
+    "en": "Seating"
   },
 };
